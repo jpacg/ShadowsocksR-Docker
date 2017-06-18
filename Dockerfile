@@ -1,5 +1,5 @@
 FROM alpine
-MAINTAINER smounives <smounives@outlook.com>
+MAINTAINER jpacg <jpacg0@gmail.com>
 
 RUN set -ex \
     && if [ $(wget -qO- ipinfo.io/country) == CN ]; then echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories ;fi \
@@ -8,11 +8,11 @@ RUN set -ex \
 
 ENV SERVER_ADDR 0.0.0.0
 ENV SERVER_PORT 8388
-ENV PASSWORD=
-ENV METHOD aes-256-cfb
-ENV PROTOCOL origin
+ENV PASSWORD mypassword
+ENV METHOD none
+ENV PROTOCOL auth_chain_a
 ENV TIMEOUT 300
-ENV OBFS plain
+ENV OBFS tls1.2_ticket_auth
 
 ENTRYPOINT ["/usr/bin/ssserver"]
 CMD ssserver -s "$SERVER_ADDR" \

@@ -1,18 +1,16 @@
-ShadowsocksR-Docker
+shadowsocksr
 ==================
 
-Thanks to the developer of Shadowsocks [@clowwindy](https://github.com/clowwindy)
+Thanks to the developer of shadowsocksr [@breakwa11](https://github.com/breakwa11)
 
-Thanks to the developer of ShadowsocksR [@breakwa11](https://github.com/breakwa11)
-
-This Dockerfile builds an image with the Python implementation of [ShadowsocksR](https://github.com/breakwa11/shadowsocks/tree/manyuser). Based on Alpine image(A lightweight Linux).
+This Dockerfile builds an image with the Python implementation of [shadowsocksr](https://github.com/shadowsocksr/shadowsocksr/tree/manyuser). Based on Alpine image(A lightweight Linux).
 
 Quick Start
 -----------
 
-This image uses ENTRYPOINT to run the containers as an executable. 
+This image uses ENTRYPOINT to run the containers as an executable.
 
-    docker run -d -p 8388:8388/tcp -p 8388:8388/udp smounives/shadowsocksr-docker -s 0.0.0.0 -p 8388 -k mypassword -m aes-256-cfb -o tls1.2_ticket_auth -O auth_sha1_v4
+    docker run -d -p 8388:8388/tcp -p 8388:8388/udp jpacg/shadowsocksr -s 0.0.0.0 -p 8388 -k mypassword -m none -o tls1.2_ticket_auth -O auth_chain_a
 
 You can configure the service to run on a port of your choice. Just make sure the port number given to Docker is the same as the one given to ShadowsocksR.
 
